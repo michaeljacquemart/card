@@ -1,6 +1,6 @@
 {
-  "name": "@michaeljacquemart/npxcard",
-  "version": "1.0.2",
+  "name": "@michaeljacquemart/card",
+  "version": "1.0.0",
   "description": "A personal card for Michael Jacquemart (@michaeljacquemart)",
   "main": "/bin/card.js",
   "bin": {
@@ -10,7 +10,7 @@
     "type": "git",
     "url": "git+https://github.com/michaeljacquemart/npxcard.git"
   },
-  "homepage": "",
+  "homepage": ".",
   "scripts": {
     "prepublish": "npm run build",
     "build": "node build.js",
@@ -32,13 +32,9 @@
     "bin/card.js",
     "bin/output"
   ],
-  "devDependencies": {
-    "boxen": "^2.1.0",
-    "chalk": "^2.4.2",
-    "standard": "^12.0.1"
-  },
+  "devDependencies": {},
   "bugs": {
-    "url": ""
+    "url": "https://github.com/michaeljacquemart/card/issues"
   },
   "dependencies": {
     "axios": "^0.19.0",

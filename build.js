@@ -5,11 +5,10 @@ const chalk = require('chalk')
 const boxen = require('boxen')
 const fs = require('fs')
 const path = require('path')
-const axios = require('axios');
-const terminalLink = require('terminal-link');
-var confirm = require('inquirer-confirm');
+const axios = require('axios')
+const terminalLink = require('terminal-link')
+var confirm = require('inquirer-confirm')
 const github_link = 'https://github.com/'
-
 
 // Define options for Boxen
 const options = {
@@ -56,29 +55,26 @@ const output = heading + // data.name + data.handle
                webing + newline + newline + // data.labelWeb + data.web
                carding // data.labelCard + data.npx
 
-async function getRepos() {
+async function getRepos () {
   try {
-    const response = await axios.get('https://api.github.com/users/michaeljacquemart/repos');
-    console.log("\n");
+    const response = await axios.get('https://api.github.com/users/michaeljacquemart/repos')
+    console.log('\n')
 
     response.data.forEach(el => {
-        let temp_link = github_link + el.full_name;
-        console.log(terminalLink(temp_link));
-    });
+      let temp_link = github_link + el.full_name
+      console.log(terminalLink(temp_link))
+    })
   } catch (error) {
-    console.error(error);
+    console.error(error)
   }
 }
 
-
-
 fs.writeFileSync(path.join(__dirname, 'bin/output'), chalk.green(boxen(output, options)))
 
-
 confirm('Do you want to see a list of my public repositories as well as my npx-card ?')
-  .then(function confirmed() {
-    console.log('There you go !','\n');
-    getRepos();
-  }, function cancelled() {
-    console.log('Sorry to hear that...');
-  });
+  .then(function confirmed () {
+    console.log('There you go !', '\n')
+    getRepos()
+  }, function cancelled () {
+    console.log('Sorry to hear that...')
+  })
